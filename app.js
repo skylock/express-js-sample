@@ -6,8 +6,14 @@ app.get('/', function (req, res) {
     res.send('Hello world');
 });
 
-const port = process.env.APP_PORT || 3000;
-app.listen(port);
+app.get('/api/courses', function (req, res) {
+    const courses = [1, 2, 3];
+    res.send(courses);
+});
 
-console.log(`Listening on port ${port}`);
-console.log(`Open app using http://localhost:${port}`);
+const port = process.env.APP_PORT || 3000;
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+    console.log(`Open app using http://localhost:${port}`);
+});
+
